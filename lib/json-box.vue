@@ -32,10 +32,18 @@ export default {
       expand: true
     }
   },
+  watch: {
+    expandDepth () {
+      this.recomputeExpand()
+    }
+  },
   mounted() {
-    this.expand = this.previewMode || (this.depth >= this.expandDepth ? false : true)
+    this.recomputeExpand()
   },
   methods: {
+    recomputeExpand () {
+      this.expand = this.previewMode || (this.depth >= this.expandDepth ? false : true)
+    },
     toggle() {
       this.expand = !this.expand
 
