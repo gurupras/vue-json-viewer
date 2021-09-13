@@ -1,5 +1,8 @@
 <template>
-  <div ref="viewer" :class="jvClass">
+  <div
+    ref="viewer"
+    :class="jvClass"
+  >
     <div 
       v-if="copyable"
       :class="`jv-tooltip ${copyText.align || 'right'}`"
@@ -43,9 +46,12 @@
 
 <script>
 import Vue from 'vue'
+import VueReactiveProvide from 'vue-reactive-provide'
 import JsonBox from './json-box'
 import Clipboard from 'clipboard'
 import {debounce} from './utils';
+
+Vue.use(VueReactiveProvide)
 
 export default {
   name: 'JsonViewer',
@@ -90,11 +96,9 @@ export default {
       default: false,
     }
   },
-  provide () {
-    return {
-      expandDepth: this.expandDepth,
-      timeformat: this.timeformat,
-    }
+  reactiveProvide: {
+    name: 'parentProps',
+    include: ['expandDepth', 'timeformat']
   },
   data () {
     return {

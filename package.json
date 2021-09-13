@@ -47,7 +47,8 @@
   ],
   "dependencies": {
     "clipboard": "^2.0.4",
-    "vue": "^2.6.9"
+    "vue": "^2.6.9",
+    "vue-reactive-provide": "^0.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",

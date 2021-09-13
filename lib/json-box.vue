@@ -10,7 +10,7 @@ import JsonDate from './types/json-date'
 
 export default {
   name: 'JsonBox',
-  inject: ['expandDepth'],
+  inject: ['parentProps'],
   props: {
     value: {
       type: [Object, Array, String, Number, Boolean, Function, Date],
@@ -33,16 +33,19 @@ export default {
     }
   },
   watch: {
-    expandDepth () {
-      this.recomputeExpand()
+    'parentProps.expandDepth' () {
+      const newExpand = this.recomputeExpand()
+      if (this.expand !== newExpand) {
+        this.toggle()
+      }
     }
   },
   mounted() {
-    this.recomputeExpand()
+    this.expand = this.recomputeExpand()
   },
   methods: {
     recomputeExpand () {
-      this.expand = this.previewMode || (this.depth >= this.expandDepth ? false : true)
+      return this.previewMode || (this.depth >= this.parentProps.expandDepth ? false : true)
     },
     toggle() {
       this.expand = !this.expand

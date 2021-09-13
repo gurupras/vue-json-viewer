@@ -1,7 +1,7 @@
 <script>
 export default {
   name: 'JsonDate',
-  inject: ['timeformat'],
+  inject: ['parentProps'],
   functional: true,
   props: {
     jsonValue: {
@@ -11,7 +11,7 @@ export default {
   },
   render (h, { props, injections }) {
     const value = props.jsonValue;
-    const timeformat = injections.timeformat;
+    const timeformat = injections.parentProps.timeformat;
 
     return h('span', {
       class: {
