@@ -1,5 +1,5 @@
 {
-  "name": "vue-json-viewer",
+  "name": "@gurupras/vue-json-viewer",
   "version": "2.2.19",
   "description": "vuejs展示json的组件",
   "main": "vue-json-viewer.js",
