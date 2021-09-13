@@ -102,6 +102,13 @@ export default {
         },
         domProps: {
           innerText: `${this.keyName}:`
+        },
+        on: {
+          click: () => {
+            if (!this.previewMode && complex && window.getSelection().toString() === '') {
+              this.toggle()
+            }
+          }
         }
       }))
     }
