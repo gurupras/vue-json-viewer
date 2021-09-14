@@ -29,6 +29,7 @@
         :value="value"
         :sort="sort"
         :preview-mode="previewMode"
+        @expanded="$emit('expanded', $event)"
       />
     </div>
     <div 

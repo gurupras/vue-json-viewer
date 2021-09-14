@@ -38,6 +38,11 @@ export default {
       if (this.expand !== newExpand) {
         this.toggle()
       }
+    },
+    expand (v) {
+      if (v) {
+        this.$emit('expanded', this)
+      }
     }
   },
   mounted() {

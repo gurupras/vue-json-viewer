@@ -96,6 +96,9 @@ export default {
             depth: this.depth + 1,
             value,
             previewMode: this.previewMode,
+          },
+          on: {
+            expanded: ($vm) => this.$emit('expanded', $vm)
           }
         }))
       })
