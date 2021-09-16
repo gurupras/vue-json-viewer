@@ -48,9 +48,7 @@ export default {
   },
   methods: {
     setValue(val) {
-      setTimeout(() => {
-        this.value = val;
-      }, 0);
+      this.value = val;
     },
     toggle() {
       this.$emit('update:expand', !this.expand)

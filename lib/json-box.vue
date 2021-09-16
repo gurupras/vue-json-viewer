@@ -7,6 +7,7 @@ import JsonObject from './types/json-object'
 import JsonArray from './types/json-array'
 import JsonFunction from './types/json-function'
 import JsonDate from './types/json-date'
+import Mark from 'mark.js'
 
 export default {
   name: 'JsonBox',
@@ -39,13 +40,21 @@ export default {
         this.toggle()
       }
     },
+    'parentProps.highlight' () {
+      if (this.mark) {
+        this.parentProps.searchCallback(this.mark)
+      }
+    },
     expand (v) {
       if (v) {
         this.$emit('expanded', this)
       }
     }
   },
+  beforeMount () {
+    },
   mounted() {
+    this.mark = new Mark(this.$el)
     this.expand = this.recomputeExpand()
   },
   methods: {
@@ -136,6 +145,10 @@ export default {
         }
       }
     }))
+
+    if (this.parentProps.searchCallback) {
+      this.$nextTick().then(() => this.parentProps.searchCallback(this.mark))
+    }
 
     return h('div', {
       class: {

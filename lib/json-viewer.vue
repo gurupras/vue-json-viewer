@@ -95,11 +95,19 @@ export default {
     previewMode: {
       type: Boolean,
       default: false,
+    },
+    searchCallback: {
+      type: Function,
+      default: null
+    },
+    highlight: {
+      type: String,
+      default: ''
     }
   },
   reactiveProvide: {
     name: 'parentProps',
-    include: ['expandDepth', 'timeformat']
+    include: ['expandDepth', 'timeformat', 'highlight', 'searchCallback']
   },
   data () {
     return {

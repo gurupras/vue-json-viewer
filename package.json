@@ -47,6 +47,7 @@
   ],
   "dependencies": {
     "clipboard": "^2.0.4",
+    "mark.js": "^8.11.1",
     "vue": "^2.6.9",
     "vue-reactive-provide": "^0.3.0"
   },

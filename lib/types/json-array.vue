@@ -38,12 +38,10 @@ export default {
       if (index === 0) {
         this.value = [];
       }
-      setTimeout(() => {
-        if (vals.length > index) {
-          this.value.push(vals[index]);
-          this.setValue(vals, index + 1);
-        }
-      }, 0);
+      if (vals.length > index) {
+        this.value.push(vals[index]);
+        this.setValue(vals, index + 1);
+      }
     },
     toggle() {
       this.$emit('update:expand', !this.expand)
